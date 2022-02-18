@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "DynmapStitcher": {
+      "commandName": "Project",
+      "commandLineArgs": "ls https://map.minecrafting.ru/"
+    },
+    "DS list": {
+      "commandName": "Project",
+      "commandLineArgs": "list https://map.minecrafting.ru/"
+    }
+  }
+}
