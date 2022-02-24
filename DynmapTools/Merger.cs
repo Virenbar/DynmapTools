@@ -22,7 +22,7 @@ namespace DynmapTools
                     {
                         using (var II = Image.Load("I.png"))
                         {
-                            O.DrawImage(II, new Point(P.X * Size, P.Y * Size), 1);
+                            O.DrawImage(II, new SixLabors.ImageSharp.Point(P.X * Size, P.Y * Size), 1);
                         }
                     });
                 }

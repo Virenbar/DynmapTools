@@ -1,29 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net5.0</TargetFramework>
+		<DebugType>embedded</DebugType>
+		<AssemblyVersion>1.0.1</AssemblyVersion>
+		<PublishSingleFile>true</PublishSingleFile>
+		<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+		<PublishTrimmed>true</PublishTrimmed>
+		<ApplicationIcon>icon.ico</ApplicationIcon>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
-    <DebugType>embedded</DebugType>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-  </PropertyGroup>
 
+	<ItemGroup>
+		<None Remove="I.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Remove="I.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="I.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="I.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="2.0.0" />
-    <PackageReference Include="Spectre.Console" Version="0.43.0" />
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
-    <PackageReference Include="System.CommandLine.NamingConventionBinder" Version="2.0.0-beta3.22114.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="SixLabors.ImageSharp" Version="2.0.0" />
+		<PackageReference Include="Spectre.Console" Version="0.43.0" />
+		<PackageReference Include="System.CommandLine" Version="2.0.0-beta3.22114.1" />
+		<PackageReference Include="System.CommandLine.NamingConventionBinder" Version="2.0.0-beta3.22114.1" />
+	</ItemGroup>
 
 </Project>

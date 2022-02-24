@@ -2,6 +2,7 @@
 using System.CommandLine;
 using System.CommandLine.NamingConventionBinder;
 using System.Linq;
+using System.Threading;
 
 namespace DynmapTools.Commands
 {
@@ -20,9 +21,8 @@ namespace DynmapTools.Commands
         {
             //URL = "https://ebs.virenbar.ru/dynmap/";
             URL = "https://map.minecrafting.ru/";
-
             var D = new Dynmap(URL);
-            D.RefreshConfig();
+            AnsiConsole.Status().Start("[yellow]Getting map list...[/]", ctx => { D.RefreshConfig(); });
             /*
              * Scale - Number of pixels per block on max zoom (4 for lowres)
              * ExtraZoomOut - Number of additional z levels (0 by default)
@@ -45,25 +45,14 @@ namespace DynmapTools.Commands
             var Root = new Tree("Available worlds");
             foreach (var W in Worlds)
             {
-                var WNode = Root.AddNode($"[darkgreen]{W.Name} - {W.Title}[/]");
+                var WNode = Root.AddNode($"[white]{W.Name} - {W.Title}[/]");
                 foreach (var M in W.Maps)
                 {
-                    WNode.AddNode($"[green]{M.Name} - {M.Title}[/]");
+                    WNode.AddNode($"[yellow]{M.Name.PadRight(MNMax)} {M.Title}[/]");
                 }
             }
             AnsiConsole.Write(Root);
 
-            //Console.WriteLine("Available worlds:");
-            //foreach (var W in Worlds)
-            //{
-            //    Console.WriteLine($"{W.Name} - {W.Title}");
-            //    foreach (var M in W.Maps)
-            //    {
-            //        Console.ForegroundColor = ConsoleColor.DarkGreen;
-            //        Console.WriteLine($"    {M.Name.PadRight(MNMax)} - {M.Title.PadRight(MTMax)} (Extra zoom: {W.ExtraZoomOut}, Scale: {M.Scale})");
-            //        Console.ResetColor();
-            //    }
-            //}
             return 0;
         }
     }

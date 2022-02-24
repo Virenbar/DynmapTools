@@ -1,9 +1,7 @@
 ﻿using DynmapTools.Commands;
-using Spectre.Console;
 using System;
 using System.CommandLine;
 using System.CommandLine.Builder;
-using System.CommandLine.NamingConventionBinder;
 using System.CommandLine.Parsing;
 using System.Diagnostics;
 
@@ -30,7 +28,12 @@ namespace DynmapTools
                 .UseExceptionHandler()
                 .UseHelp()
                 .Build();
+#if DEBUG
+            CBL.Invoke("ls t");
+            //CBL.Invoke("m t world flat [0,0] [2,2,2]");
+#else
             CBL.Invoke(args);
+#endif
         }
     }
 }

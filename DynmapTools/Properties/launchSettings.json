@@ -7,6 +7,11 @@
     "DS list": {
       "commandName": "Project",
       "commandLineArgs": "list https://map.minecrafting.ru/"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
     }
   }
 }
